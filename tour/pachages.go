@@ -2,17 +2,17 @@ package main
 
 import (
 	"fmt"
-	"math/cmplx"
-)
-
-var (
-	Tobe   bool       = false
-	MaxInt uint64     = 1<<64 - 1
-	z      complex128 = cmplx.Sqrt(-5 + 12i)
+	"runtime"
 )
 
 func main() {
-	fmt.Printf("type: %T Value: %v\n", Tobe, Tobe)
-	fmt.Printf("type: %T Value: %v\n", MaxInt, MaxInt)
-	fmt.Printf("type: %T Value: %v\n", z, z)
+	fmt.Print("Go runs on ")
+	switch os := runtime.GOOS; os {
+	case "darwin":
+		fmt.Println("OS X.")
+	case "linux":
+		fmt.Println("Linux.")
+	default:
+		fmt.Printf("%s.\n", os)
+	}
 }
