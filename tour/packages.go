@@ -1,13 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
-func fibonacci() func() int {
-
+func say(s string) {
+	for i := 0; i < 5; i++ {
+		time.Sleep(100 * time.Millisecond)
+		fmt.Println(s)
+	}
 }
 
 func main() {
-	for i := 0; i < 10; i++ {
-		fmt.Println(f())
-	}
+	go say("wo rld")
+	say("hello")
 }
